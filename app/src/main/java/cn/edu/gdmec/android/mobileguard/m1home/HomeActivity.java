@@ -19,7 +19,7 @@ public class HomeActivity extends AppCompatActivity{
     private GridView gv_home;
     private long mExitTime;
     int i;
-    int k;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
