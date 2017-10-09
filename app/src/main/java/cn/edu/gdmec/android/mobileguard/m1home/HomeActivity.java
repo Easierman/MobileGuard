@@ -18,6 +18,7 @@ import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
 public class HomeActivity extends AppCompatActivity{
     private GridView gv_home;
     private long mExitTime;
+    int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
