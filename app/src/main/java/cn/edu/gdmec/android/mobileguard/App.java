@@ -13,6 +13,7 @@ import android.util.Log;
  */
 
 public class App extends Application{
+    int o;
     @Override
     public void onCreate(){
         super.onCreate();
