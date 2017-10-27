@@ -21,18 +21,18 @@ public class SetUpPasswordDialog extends Dialog implements View.OnClickListener{
     public EditText mAffirmET;
     private MyCallBack myCallBack;
 
+    public SetUpPasswordDialog(Context context) {
+        super(context, R.style.dialog_custom);
+    }
 
-
-
+    public void setMyCallBack(MyCallBack myCallBack){
+        this.myCallBack=myCallBack;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState){
         setContentView(R.layout.setup_password_dialog);
         super.onCreate(savedInstanceState);
         initView();
-    }
-
-    public SetUpPasswordDialog(@NonNull Context context) {
-        super(context, R.style.dialog_custom);
     }
 
     private void initView() {
@@ -47,16 +47,12 @@ public class SetUpPasswordDialog extends Dialog implements View.OnClickListener{
             mTitleTV.setText(title);
         }
     }
-    public void setCallBack(MyCallBack myCallBack){
-        this.myCallBack = myCallBack;
-    }
-
     @Override
-    public void onClick(View view) {
-        switch (view.getId()){
+    public void onClick(View v) {
+        switch (v.getId()){
             case R.id.btn_ok:
-                System.out.print("SetupPasswordDialog");
                 myCallBack.ok();
+                System.out.print("SetupPasswordDialog");
                 break;
             case R.id.btn_cancel:
                 myCallBack.cancel();
@@ -64,7 +60,6 @@ public class SetUpPasswordDialog extends Dialog implements View.OnClickListener{
         }
 
     }
-
 
 
 

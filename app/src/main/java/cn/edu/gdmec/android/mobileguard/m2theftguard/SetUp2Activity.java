@@ -45,15 +45,15 @@ public class SetUp2Activity extends BaseSetUpAcitivity implements View.OnClickLi
     @Override
     public void showNext() {
         if (!isBind()){
-            Toast.makeText(this,"您还没有绑定SIM卡！",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"您还没有绑定SIM卡!",Toast.LENGTH_SHORT).show();
             return;
         }
-        startActivityAndFinishSelf(SetUp3Activity.class);
+        startActivityAndFinishShelf(SetUp3Activity.class);
     }
 
     @Override
     public void showPre() {
-        startActivityAndFinishSelf(SetUp1Activity.class);
+        startActivityAndFinishShelf(SetUp1Activity.class);
     }
 
     @Override

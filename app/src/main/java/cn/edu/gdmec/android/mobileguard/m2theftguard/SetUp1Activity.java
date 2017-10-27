@@ -21,8 +21,9 @@ public class SetUp1Activity extends BaseSetUpAcitivity{
 
     @Override
     public void showNext() {
-        startActivityAndFinishSelf(SetUp2Activity.class);
+        startActivityAndFinishShelf(SetUp2Activity.class);
     }
+
 
     @Override
     public void showPre() {
