@@ -3,7 +3,6 @@ package cn.edu.gdmec.android.mobileguard.m2theftguard.dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -11,8 +10,9 @@ import android.widget.TextView;
 
 import cn.edu.gdmec.android.mobileguard.R;
 
+
 /**
- * Created by Shinelon on 2017/9/21.
+ * Created by 10255 on 2017/10/9.
  */
 
 public class SetUpPasswordDialog extends Dialog implements View.OnClickListener{

@@ -16,7 +16,7 @@ import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.service.GPSLocationService;
 
 /**
- * Created by Shinelon on 2017/9/21.
+ * Created by student on 17/10/17.
  */
 
 public class SmsLostFindReciver extends BroadcastReceiver {

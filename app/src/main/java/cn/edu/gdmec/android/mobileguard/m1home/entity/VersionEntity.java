@@ -1,7 +1,7 @@
 package cn.edu.gdmec.android.mobileguard.m1home.entity;
 
 /**
- * Created by Shinelon on 2017/9/21.
+ * Created by 10255 on 2017/9/21.
  */
 
 public class VersionEntity {

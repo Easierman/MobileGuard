@@ -1,21 +1,21 @@
 package cn.edu.gdmec.android.mobileguard.m2theftguard.adapter;
 
 import android.content.Context;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-
 import android.widget.TextView;
 
 import java.util.List;
 
 import cn.edu.gdmec.android.mobileguard.R;
-
 import cn.edu.gdmec.android.mobileguard.m2theftguard.entity.ContactInfo;
 
+/**
+ * Created by student on 17/10/17.
+ */
 
-public class ContactAdapter extends BaseAdapter {
+public class ContactAdapter extends BaseAdapter{
     private List<ContactInfo> contactInfos;
     private Context context;
     public ContactAdapter(List<ContactInfo> contactInfos, Context context) {
@@ -61,4 +61,5 @@ public class ContactAdapter extends BaseAdapter {
 
 
     }
+
 }

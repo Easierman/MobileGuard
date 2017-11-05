@@ -2,7 +2,6 @@ package cn.edu.gdmec.android.mobileguard.m2theftguard;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,11 +11,12 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.mobileguard.R;
 
+
 /**
- * Created by Shinelon on 2017/9/21.
+ * Created by pc on 2017/10/11.
  */
 
-public class SetUp2Activity extends BaseSetUpAcitivity implements View.OnClickListener{
+public class Setup2Activity extends BaseSetUpActivity implements View.OnClickListener{
     private TelephonyManager mTelephonyManager;
     private Button mBindSIMBtn;
     @Override
@@ -24,22 +24,19 @@ public class SetUp2Activity extends BaseSetUpAcitivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_2);
         ((RadioButton) findViewById(R.id.rb_second)).setChecked(true);
-        mTelephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-        mBindSIMBtn = (Button) findViewById(R.id.btn_bind_sim);
+        mTelephonyManager=(TelephonyManager)getSystemService(TELEPHONY_SERVICE);
+        initView();
+
+    }
+    private void initView() {
+        ((RadioButton)findViewById(R.id.rb_second)).setChecked(true);
+        mBindSIMBtn=(Button)findViewById(R.id.btn_bind_sim);
         mBindSIMBtn.setOnClickListener(this);
-        if (isBind()){
+        if(isBind()){
             mBindSIMBtn.setEnabled(false);
         }else{
             mBindSIMBtn.setEnabled(true);
         }
-    }
-
-    private boolean isBind() {
-        String simString = sp.getString("sim", null);
-        if (TextUtils.isEmpty(simString)){
-            return false;
-        }
-        return true;
     }
 
     @Override
@@ -48,33 +45,40 @@ public class SetUp2Activity extends BaseSetUpAcitivity implements View.OnClickLi
             Toast.makeText(this,"您还没有绑定SIM卡!",Toast.LENGTH_SHORT).show();
             return;
         }
-        startActivityAndFinishShelf(SetUp3Activity.class);
+        startActivityAndFinishShelf(Setup3Activity.class);
     }
 
     @Override
     public void showPre() {
-        startActivityAndFinishShelf(SetUp1Activity.class);
+        startActivityAndFinishShelf(Setup1Activity.class);
     }
 
+
+    private boolean isBind() {
+        String simString=sp.getString("sim" ,null);
+        if(TextUtils.isEmpty(simString)){
+            return false;
+        }
+        return true;
+    }
     @Override
-    public void onClick(View view) {
-        switch (view.getId()){
+    public void onClick(View v) {
+        switch (v.getId()){
             case R.id.btn_bind_sim:
                 bindSIM();
                 break;
         }
     }
-
     private void bindSIM() {
         if (!isBind()){
-            String simSerialNumber = mTelephonyManager.getSimSerialNumber();
-            SharedPreferences.Editor edit = sp.edit();
-            edit.putString("sim", simSerialNumber);
+            String simSerialNumber=mTelephonyManager.getSimSerialNumber();
+            SharedPreferences.Editor edit=sp.edit();
+            edit.putString("sim",simSerialNumber);
             edit.commit();
-            Toast.makeText(this,"SIM卡绑定成功！",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"SIM卡绑定成功!",Toast.LENGTH_SHORT).show();
             mBindSIMBtn.setEnabled(false);
-        }else{
-            Toast.makeText(this,"SIM卡已经绑定！",Toast.LENGTH_LONG).show();
+        }else {
+            Toast.makeText(this,"SIM卡已经绑定!",Toast.LENGTH_SHORT).show();
             mBindSIMBtn.setEnabled(false);
         }
     }

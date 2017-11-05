@@ -12,8 +12,9 @@ import android.widget.TextView;
 
 import cn.edu.gdmec.android.mobileguard.R;
 
+
 /**
- * Created by Shinelon on 2017/9/21.
+ * Created by 10255 on 2017/10/9.
  */
 
 public class InterPasswordDialog extends Dialog implements View.OnClickListener{

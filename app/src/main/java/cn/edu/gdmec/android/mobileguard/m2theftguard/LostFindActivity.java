@@ -14,11 +14,8 @@ import android.widget.ToggleButton;
 
 import cn.edu.gdmec.android.mobileguard.R;
 
-/**
- * Created by Shinelon on 2017/9/21.
- */
 
-public class LostFindActivity extends AppCompatActivity implements View.OnClickListener{
+public class LostFindActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView mSafePhoneTV;
     private RelativeLayout mInterSetupRL;
     private SharedPreferences msharedPrefences;
@@ -76,7 +73,7 @@ public class LostFindActivity extends AppCompatActivity implements View.OnClickL
         return msharedPrefences.getBoolean("isSetUp",false);
     }
     private void startSetup1Activity() {
-        Intent intent = new Intent(LostFindActivity.this,SetUp1Activity.class);
+        Intent intent = new Intent(LostFindActivity.this,Setup1Activity.class);
         startActivity(intent);
         finish();
     }

@@ -4,8 +4,8 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -18,12 +18,11 @@ import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.LostFindActivity;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.InterPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetUpPasswordDialog;
-
-import cn.edu.gdmec.android.mobileguard.m2theftguard.receiver.MyDeviceAdminReciver;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.receiver.MyDeviceAdminReciever;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
+import cn.edu.gdmec.android.mobileguard.m3communicationguard.SecurityPhoneActivity;
 
-public class HomeActivity extends AppCompatActivity {
-
+public class HomeActivity extends AppCompatActivity{
     private long mExitTime;
     private GridView gv_home;
     private SharedPreferences msharedPreferences;
@@ -54,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
                         }
                         break;
                     case 1://通讯卫士
-                        //startActivity(SecurityPhoneActivity.class);
+                        startActivity(SecurityPhoneActivity.class);
                         break;
                     case 2://软件管家
                         //startActivity(AppManagerActivity.class);
@@ -81,7 +80,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         policyManager=(DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
-        componentName=new ComponentName(this, MyDeviceAdminReciver.class);
+        componentName=new ComponentName(this, MyDeviceAdminReciever.class);
         boolean active=policyManager.isAdminActive(componentName);
         if (!active){
             Intent intent= new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
@@ -170,7 +169,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void savePswd(String affirmPwsd) {
         SharedPreferences.Editor edit=msharedPreferences.edit();
-        edit.putString("PhoneAntiTheftPWD",MD5Utils.encode(affirmPwsd));
+        edit.putString("PhoneAntiTheftPWD", MD5Utils.encode(affirmPwsd));
         edit.commit();
     }
 

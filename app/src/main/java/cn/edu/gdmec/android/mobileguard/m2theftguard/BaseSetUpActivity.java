@@ -11,11 +11,8 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.mobileguard.R;
 
-/**
- * Created by Shinelon on 2017/9/21.
- */
 
-public abstract class BaseSetUpAcitivity extends AppCompatActivity{
+public abstract class BaseSetUpActivity extends AppCompatActivity {
     public SharedPreferences sp;
     private GestureDetector mGestureDetector;
     @Override

@@ -11,13 +11,12 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.mobileguard.R;
 
-import static android.R.attr.data;
 
 /**
- * Created by Shinelon on 2017/9/21.
+ * Created by pc on 2017/10/11.
  */
 
-public class SetUp3Activity extends BaseSetUpAcitivity implements View.OnClickListener{
+public class Setup3Activity extends BaseSetUpActivity implements View.OnClickListener{
     private EditText mInputPhone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +44,12 @@ public class SetUp3Activity extends BaseSetUpAcitivity implements View.OnClickLi
         SharedPreferences.Editor edit=sp.edit();
         edit.putString("safephone",safePhone);
         edit.commit();
-        startActivityAndFinishShelf(SetUp4Activity.class);
+        startActivityAndFinishShelf(Setup4Activity.class);
     }
 
     @Override
     public void showPre() {
-        startActivityAndFinishShelf(SetUp2Activity.class);
+        startActivityAndFinishShelf(Setup2Activity.class);
     }
 
     @Override
