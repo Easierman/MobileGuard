@@ -1,8 +1,23 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.entity;
 
-/**
- * Created by Shinelon on 2017/9/21.
- */
+import android.graphics.drawable.Drawable;
 
 public class AppInfo {
+    public String packageName;
+    //public String version;
+    public Drawable icon;
+    public String appName;
+    public String apkPath;
+    public long appSize;
+    public boolean isInRoom;
+    public boolean isUserApp;
+    public boolean isSelected=false;
+    public String getAppLocation(boolean isInRoom){
+        if (isInRoom){
+            return "手机内存";
+        }else {
+            return "外部存储";
+        }
+    }
+
 }
