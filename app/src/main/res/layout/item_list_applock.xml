@@ -10,7 +10,7 @@
         android:layout_height="50dp"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:latout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp" />
     <TextView
         android:id="@+id/tv_appname"
         style="@style/textview16sp"
