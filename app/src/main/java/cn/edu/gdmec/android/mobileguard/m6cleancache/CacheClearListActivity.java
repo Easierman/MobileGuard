@@ -1,12 +1,15 @@
 package cn.edu.gdmec.android.mobileguard.m6cleancache;
 
+import android.content.Intent;
 import android.content.pm.IPackageStatsObserver;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageStats;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.Formatter;
 import android.view.View;
@@ -101,16 +104,20 @@ public class CacheClearListActivity extends AppCompatActivity implements View.On
             public void run(){
                 cacheInfos.clear();
                 List<PackageInfo>infos = pm.getInstalledPackages(0);
-                for (PackageInfo info:infos){
+                for (PackageInfo info:infos) {
                     getCacheSize(info);
-                    try{
+                    try {
                         Thread.sleep(50);
-                    }catch (InterruptedException e){
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     Message msg = Message.obtain();
                     msg.obj = info;
                     msg.what = SCANNING;
+                    handler.sendMessage(msg);
+                }
+                    Message msg = Message.obtain();
+                    msg.what = FINISH;
                     handler.sendMessage(msg);
                 };
             };
@@ -125,13 +132,51 @@ public class CacheClearListActivity extends AppCompatActivity implements View.On
             e.printStackTrace();
         }
     }
-    public  MyPackObserver(PackageInfo info){
-        this.info = info;
-    }
-    }
+    private class MyPackObserver extends android.content.pm.IPackageStatsObserver.Stub{
+        private PackageInfo info;
 
+        public MyPackObserver(PackageInfo info) {
+            this.info = info;
+        }
+
+        @Override
+        public void onGetStatsCompleted(PackageStats pStats, boolean succeeded) throws RemoteException {
+            long cachesize = pStats.cacheSize;
+            if (cachesize>=0){
+                CacheInfo cacheInfo = new CacheInfo();
+                cacheInfo.cacheSize = cachesize;
+                cacheInfo.packagename = info.packageName;
+                cacheInfo.appName = info.applicationInfo.loadLabel(pm).toString();
+                cacheInfo.appIcon = info.applicationInfo.loadIcon(pm);
+                cacheInfos.add(cacheInfo);
+                cacheMemory += cachesize;
+            }
+        }
+    }
     @Override
     public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.imgv_leftbtn:
+                finish();
+                break;
+            case R.id.btn_cleanall:
+                if (cacheMemory>0){
+                    Intent intent = new Intent(this,CleanCacheActivity.class);
 
+                    intent.putExtra("cacheMemory",cacheMemory);
+                    startActivity(intent);
+                    finish();
+                }
+                break;
+        }
+    }
+    @Override
+    protected void onDestory(){
+        super.onDestroy();
+        animation.stop();
+        if (thread != null){
+            thread.interrupt();
+        }
     }
 }
+
