@@ -1,9 +1,5 @@
 package cn.edu.gdmec.android.mobileguard.m9advancedtools;
 
-/**
- * Created by Shinelon on 2017/9/21.
- */
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -20,7 +16,6 @@ import java.util.List;
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.fragment.AppLockFragment;
 import cn.edu.gdmec.android.mobileguard.m9advancedtools.fragment.AppUpLockFragment;
-
 
 public class AppLockActivity extends AppCompatActivity implements View.OnClickListener {
 

@@ -1,9 +1,5 @@
 package cn.edu.gdmec.android.mobileguard.m9advancedtools.adapter;
 
-/**
- * Created by Shinelon on 2017/9/21.
- */
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;

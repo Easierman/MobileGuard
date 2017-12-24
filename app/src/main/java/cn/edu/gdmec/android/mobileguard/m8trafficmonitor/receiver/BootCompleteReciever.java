@@ -1,8 +1,5 @@
 package cn.edu.gdmec.android.mobileguard.m8trafficmonitor.receiver;
 
-/**
- * Created by Shinelon on 2017/9/21.
- */
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;

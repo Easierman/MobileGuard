@@ -1,8 +1,5 @@
 package cn.edu.gdmec.android.mobileguard.m8trafficmonitor;
 
-/**
- * Created by Shinelon on 2017/9/21.
- */
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;

@@ -1,8 +1,5 @@
 package cn.edu.gdmec.android.mobileguard.m9advancedtools.fragment;
 
-/**
- * Created by Shinelon on 2017/9/21.
- */
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
