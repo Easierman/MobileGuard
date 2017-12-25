@@ -12,21 +12,18 @@
             android:id="@+id/imgv_appicon"
             android:layout_width="50dp"
             android:layout_height="50dp" />
-
         <TextView
             android:id="@+id/tv_appsize"
             style="@style/textview16sp"
             android:layout_marginRight="10dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"/>
-
         <TextView
             android:id="@+id/tv_appname"
             style="@style/textview16sp"
             android:layout_toRightOf="@+id/imgv_appicon"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"/>
-
         <TextView
             android:id="@+id/tv_appisroom"
             style="@style/textview14sp"
@@ -34,7 +31,6 @@
             android:layout_alignLeft="@+id/tv_appname"
             android:layout_toRightOf="@+id/imgv_appicon"
             android:layout_below="@+id/tv_appname"/>
-
     </RelativeLayout>
     <View
         android:layout_width="match_parent"
@@ -84,9 +80,18 @@
             android:layout_height="match_parent"
             android:background="@color/black30"/>
         <TextView
-            android:id="@+id/tv_about_app"
+            android:id="@+id/tv_aboutapp"
             style="@style/tvyellow14sp"
             android:text="关于"
             android:drawableTop="@drawable/abouticon_yellow_n"/>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/black30"/>
+        <TextView
+            android:id="@+id/tv_activityapp"
+            style="@style/tvyellow14sp"
+            android:text="活动"
+            android:drawableTop="@drawable/activityicon_yellow_n"/>
     </LinearLayout>
 </LinearLayout>
